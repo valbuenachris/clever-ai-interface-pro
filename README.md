@@ -1,73 +1,82 @@
-# Welcome to your Lovable project
 
-## Project info
+# AI Chat Application
 
-**URL**: https://lovable.dev/projects/20d816ed-0065-467c-9cee-17f617cd32ca
+A modern chat application with AI assistance built with React, TypeScript, and Tailwind CSS.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Real-time chat interface
+- AI-powered responses
+- Responsive design
+- Modern UI with shadcn/ui components
 
-**Use Lovable**
+## Deployment on EasyPanel
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/20d816ed-0065-467c-9cee-17f617cd32ca) and start prompting.
+### Option 1: Docker Deployment (Recommended)
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Connect your Git repository** to EasyPanel
+2. **Select Docker as deployment type**
+3. **Set environment variables** in EasyPanel:
+   ```
+   NODE_ENV=production
+   VITE_SUPABASE_URL=https://hgeysswrjgdcnrjvzudd.supabase.co
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+4. **Deploy** - EasyPanel will use the included Dockerfile
 
-**Use your preferred IDE**
+### Option 2: Static Site Deployment
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Select Static Site** as deployment type
+2. **Build settings**:
+   - Build command: `npm install && npm run build`
+   - Output directory: `dist`
+   - Node version: 18+
+3. **Set environment variables** (same as above)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Option 3: Manual Docker
 
-Follow these steps:
+```bash
+# Build the image
+docker build -t chat-ai-app .
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Run the container
+docker run -p 80:80 -e NODE_ENV=production chat-ai-app
 ```
 
-**Edit a file directly in GitHub**
+## Local Development
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Install dependencies
+npm install
 
-**Use GitHub Codespaces**
+# Start development server
+npm run dev
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Build for production
+npm run build
 
-## What technologies are used for this project?
+# Preview production build
+npm run preview
+```
 
-This project is built with:
+## Environment Variables
 
-- Vite
+Copy `.env.example` to `.env` and configure:
+
+- `VITE_SUPABASE_URL`: Your Supabase project URL
+- `VITE_SUPABASE_ANON_KEY`: Your Supabase anon key
+- `NODE_ENV`: Set to `production` for production builds
+
+## Technologies Used
+
+- React 18
 - TypeScript
-- React
-- shadcn-ui
+- Vite
 - Tailwind CSS
+- shadcn/ui
+- Supabase
+- Lucide React (icons)
 
-## How can I deploy this project?
+## Support
 
-Simply open [Lovable](https://lovable.dev/projects/20d816ed-0065-467c-9cee-17f617cd32ca) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For deployment issues, check the EasyPanel documentation or contact support.

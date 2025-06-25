@@ -1,0 +1,27 @@
+
+# EasyPanel configuration file
+name: chat-ai-app
+services:
+  app:
+    image: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+    environment:
+      NODE_ENV: production
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: unless-stopped
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+# Environment variables to set in EasyPanel
+# VITE_SUPABASE_URL: https://hgeysswrjgdcnrjvzudd.supabase.co
+# VITE_SUPABASE_ANON_KEY: your_supabase_anon_key
